@@ -30,6 +30,16 @@ class Attys_scope;
 #include "AttysComm.h"
 #include "AttysScan.h"
 
+// for beep sound
+#include <QMainWindow>
+#include <QAudioFormat>
+#include <QAudioDeviceInfo>
+#include <QAudioOutput>
+#include <QBuffer>
+#include <QDebug>
+#include <QVBoxLayout>
+#include <QFileDialog>
+
 // version number
 #define VERSION "2.2.0"
 
