@@ -24,6 +24,7 @@
 
 #include "scopewindow.h"
 #include "attys-scope.h"
+#include "windows.h"
 
 
 
@@ -580,39 +581,10 @@ void Attys_scope::enterFileName() {
 }
 
 
-// create beep sound
+// create beep sound - without use of Qt
 void Attys-scope::playTone()
 {
-    if (audio != NULL) {
-        audio->stop();
-    } else {
-        ui->PlayButton->setText("Stop");
-        // get the combined output
-        QByteArray* gen = this->tonegrid->generateTrack(this->bpm);
-        // get the QByte array from tone generator
-        input = new QBuffer();
-        input->setData(*gen);
-
-        QAudioFormat format;
-        format.setSampleRate(1000);
-        format.setChannelCount(1);
-        format.setSampleSize(16);
-        format.setCodec("audio/pcm");
-        format.setByteOrder(QAudioFormat::LittleEndian);
-        format.setSampleType(QAudioFormat::SignedInt);
-
-        QAudioDeviceInfo info(QAudioDeviceInfo::defaultOutputDevice());
-        if (!info.isFormatSupported(format)) {
-           qWarning() << "Raw audio format not supported by backend, cannot play audio.";
-           return;
-        }
-
-        audio = new QAudioOutput(format, this);
-        connect(audio, SIGNAL(stateChanged(QAudio::State)), this, SLOT(handleStateChanged(QAudio::State)));
-
-        input->open(QIODevice::ReadOnly);
-        audio->start(input);
-    }
+    Beep(1000,500)	// 1000Hz beep for 500 milliseconds
 }
 
 
