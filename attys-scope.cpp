@@ -335,6 +335,9 @@ Attys_scope::Attys_scope(QWidget *parent,
 		sprintf(status, "%d Attys", attysScan.getNAttysDevices());
 	}
 	statusLabel->setText(status);
+	
+	// audiobeep class
+	audiobeep = new AudioBeep(this);
 }
 
 
@@ -584,6 +587,7 @@ void Attys_scope::recstartstop(int)
   if (recCheckBox->checkState()) 
     {
       attysScopeWindow->startRec();
+      audiobeep->play();
     } 
   else 
     {

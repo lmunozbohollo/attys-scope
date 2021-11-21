@@ -37,6 +37,7 @@ class Attys_scope;
 #define PROGRAM_NAME "attys-scope"
 #define EXECUTABLE_NAME "attys-scope"
 
+#include "audiobeep.h"
 
 struct AttysScanMsg : public AttysScanListener {
 	QSplashScreen* splash = NULL;
@@ -285,6 +286,8 @@ private:
 
 		char status[256];
 
+	private:
+		AudioBeep* audiobeep;	// pointer to the audiobeep class
 
 };
 
