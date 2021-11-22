@@ -231,6 +231,12 @@ Attys_scope::Attys_scope(QWidget *parent,
 	recLayout->addWidget(recCheckBox);
 	recCheckBox->setStyleSheet(styleCheckBox);
 
+	recLayout->addWidget(new QLabel(" "));
+	beepCheckBox = new QCheckBox("Play sound");
+	recLayout->addWidget(beepCheckBox);
+	beepCheckBox->setSizePolicy(QSizePolicy(QSizePolicy::Fixed,
+		QSizePolicy::Fixed));
+		
 	restLayout->addLayout(recLayout);
 
 
@@ -524,6 +530,8 @@ Attys_scope::~Attys_scope() {
 			   PROGRAM_NAME);
 
 	writeSettings(settings);
+	// free the audiobeep object (and its audio buffer)
+	delete audiobeep;
 }
 
 
@@ -587,7 +595,10 @@ void Attys_scope::recstartstop(int)
   if (recCheckBox->checkState()) 
     {
       attysScopeWindow->startRec();
-      audiobeep->play();
+	if (beepCheckBox->checkState())
+	{
+		audiobeep->play();
+	}
     } 
   else 
     {

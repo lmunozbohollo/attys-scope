@@ -29,6 +29,7 @@ class Attys_scope;
 #include "samplingrate.h"
 #include "AttysComm.h"
 #include "AttysScan.h"
+#include "audiobeep.h"
 
 // version number
 #define VERSION "2.2.0"
@@ -36,8 +37,6 @@ class Attys_scope;
 #define ATTYS_STRING "ATTYS"
 #define PROGRAM_NAME "attys-scope"
 #define EXECUTABLE_NAME "attys-scope"
-
-#include "audiobeep.h"
 
 struct AttysScanMsg : public AttysScanListener {
 	QSplashScreen* splash = NULL;
@@ -84,8 +83,13 @@ public:
 	/**
 	* Button which controls recording
 	**/
-    QPointer<RecButton> recCheckBox;
+    	QPointer<RecButton> recCheckBox;
 
+	/**
+	 * Button which switches on/off the sound
+	 **/
+	QPointer<QCheckBox> beepCheckBox;
+	
 	/**
 	* Array for the special settings
 	**/
