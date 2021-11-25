@@ -30,6 +30,15 @@ Attys_scope::Attys_scope(QWidget *parent,
 			 int ignoreSettings
 	) : QWidget( parent ) {
 
+	// audiobeep class
+
+	try {
+		audiobeep = new AudioBeep(this);
+	} catch (char const* str) {
+		std::cout << "Exception: " << str << std::endl;
+		exit(1);
+	}
+
 #ifndef __APPLE__
 	QFile style(":/QTDark.stylesheet");
 	style.open(QIODevice::ReadOnly);
@@ -341,9 +350,6 @@ Attys_scope::Attys_scope(QWidget *parent,
 		sprintf(status, "%d Attys", attysScan.getNAttysDevices());
 	}
 	statusLabel->setText(status);
-	
-	// audiobeep class
-	audiobeep = new AudioBeep(this);
 }
 
 
@@ -603,6 +609,10 @@ void Attys_scope::recstartstop(int)
   else 
     {
       attysScopeWindow->stopRec();
+      	if (beepCheckBox->checkState())
+	{
+		audiobeep->play();
+	}
       // to force the user to enter a new filename
       recCheckBox->setEnabled( false );
     }

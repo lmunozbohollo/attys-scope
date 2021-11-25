@@ -34,7 +34,7 @@ OBJECTS_DIR = obj
 
 unix:!macx {
 TEMPLATE	= app
-CONFIG		+= qt release c++11
+CONFIG		+= qt debug c++11
 HEADERS		= attys-scope.h scopewindow.h gain.h highpass.h lowpass.h channel.h special.h current.h bandstop.h recbutton.h samplingrate.h audiobeep.h
 SOURCES		= attys-scope.cpp scopewindow.cpp gain.cpp lowpass.cpp highpass.cpp channel.cpp special.cpp current.cpp bandstop.cpp recbutton.cpp samplingrate.cpp audiobeep.cpp
 TARGET		= attys-scope

@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'channel.h'
 **
-** Created by: The Qt Meta Object Compiler version 67 (Qt 5.9.7)
+** Created by: The Qt Meta Object Compiler version 67 (Qt 5.12.8)
 **
 ** WARNING! All changes made in this file will be lost!
 *****************************************************************************/
@@ -12,7 +12,7 @@
 #if !defined(Q_MOC_OUTPUT_REVISION)
 #error "The header file 'channel.h' doesn't include <QObject>."
 #elif Q_MOC_OUTPUT_REVISION != 67
-#error "This file was generated using the moc from 5.9.7. It"
+#error "This file was generated using the moc from 5.12.8. It"
 #error "cannot be used with the include files from this version of Qt."
 #error "(The moc has changed too much.)"
 #endif
@@ -44,7 +44,7 @@ QT_MOC_LITERAL(3, 24, 1) // "i"
 static const uint qt_meta_data_Channel[] = {
 
  // content:
-       7,       // revision
+       8,       // revision
        0,       // classname
        0,    0, // classinfo
        1,   14, // methods
@@ -66,7 +66,7 @@ static const uint qt_meta_data_Channel[] = {
 void Channel::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
 {
     if (_c == QMetaObject::InvokeMetaMethod) {
-        Channel *_t = static_cast<Channel *>(_o);
+        auto *_t = static_cast<Channel *>(_o);
         Q_UNUSED(_t)
         switch (_id) {
         case 0: _t->channelChanged((*reinterpret_cast< int(*)>(_a[1]))); break;
@@ -75,10 +75,14 @@ void Channel::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, voi
     }
 }
 
-const QMetaObject Channel::staticMetaObject = {
-    { &QComboBox::staticMetaObject, qt_meta_stringdata_Channel.data,
-      qt_meta_data_Channel,  qt_static_metacall, nullptr, nullptr}
-};
+QT_INIT_METAOBJECT const QMetaObject Channel::staticMetaObject = { {
+    &QComboBox::staticMetaObject,
+    qt_meta_stringdata_Channel.data,
+    qt_meta_data_Channel,
+    qt_static_metacall,
+    nullptr,
+    nullptr
+} };
 
 
 const QMetaObject *Channel::metaObject() const
