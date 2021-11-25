@@ -601,6 +601,7 @@ void Attys_scope::recstartstop(int)
   if (recCheckBox->checkState()) 
     {
       attysScopeWindow->startRec();
+      // beep sound when start recording
 	if (beepCheckBox->checkState())
 	{
 		audiobeep->play();
@@ -609,6 +610,7 @@ void Attys_scope::recstartstop(int)
   else 
     {
       attysScopeWindow->stopRec();
+      // add beep when stop recording
       	if (beepCheckBox->checkState())
 	{
 		audiobeep->play();
